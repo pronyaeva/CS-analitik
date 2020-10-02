@@ -4,6 +4,7 @@ using System.Text;
 
 namespace Serialize_People
 {
+  [Serializable]
     class Person
     {
         public string name;

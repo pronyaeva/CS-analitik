@@ -67,13 +67,21 @@ namespace Serialize_People
 
         }
 
-        private static Person Deserialize()
-        {
-            Person dsp = new Person();
+    private static Person Deserialize()
+    {
+      Person dsp = new Person();
 
-            // TODO: Restore previously serialized Person object
+    // Открываем файл для чтения данных	
+    FileStream fs = new FileStream("Person.Dat", FileMode.Open);
+    // Создаем объект BinaryFormatter для выполнения десериализации
+    BinaryFormatter bf = new BinaryFormatter();
+    // Используем объект BinaryFormatter для десериализации данных из файла
+    dsp = (Person) bf.Deserialize(fs);
+    // Закрываем файл 
+          fs.Close();
 
-            return dsp;
-        }
+    return dsp;
     }
+
+}
 }
